@@ -31,6 +31,11 @@ app.post("/auth/login", (req, res) => {
 // TODO Task 3: wire the upload route under /api.
 //   import uploadRoutes from "./routes/upload.routes.js";
 //   app.use("/api", uploadRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// TODO Task 3: wire the upload route under /api.
+//   import uploadRoutes from "./routes/upload.routes.js";
+//   app.use("/api", uploadRoutes);
+app.use("/api", uploadRoutes);
 // ─────────────────────────────────────────────────────────────────────────────
 
 app.get("/", (req, res) => res.json({ ok: true, service: "threadbase-upload-server" }));
